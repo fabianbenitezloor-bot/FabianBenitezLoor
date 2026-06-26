@@ -1,0 +1,12 @@
+{
+  "name": "Fabian Benitez Loor | Creative Media Studio",
+  "short_name": "FE Studio",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#070711",
+  "theme_color": "#070711",
+  "description": "Multimedia production, branding, radio, photography, social media and streaming.",
+  "icons": [
+    {"src":"assets/img/icon.svg","sizes":"any","type":"image/svg+xml"}
+  ]
+}
