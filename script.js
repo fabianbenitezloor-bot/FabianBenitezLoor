@@ -64,7 +64,7 @@ const workProjects = {
     actitud:{title:'Actitud.ec', text:'Dirección creativa, producción audiovisual, contenido radial, streaming y desarrollo de una plataforma digital de medios.', tags:['Dirección creativa','Streaming','Radio','Plataforma digital']},
     vocu:{title:'Radio Vocú', text:'Producción de radio, programación musical, DJ radiofónico, contenido de entretenimiento, streaming y producción audiovisual.', tags:['DJ Show','Energy Mix','Conexión USA','Streaming']},
     consentida:{title:'Consentida FM 104.3', text:'Desarrollo visual de marca, campañas gráficas, contenido para redes sociales, piezas promocionales, programación musical y producción radial para una emisora con identidad joven y comercial.', tags:['Branding radial','Diseño gráfico','Campañas visuales','Social media','Producción radial']},
-    onestudio:{title:'One Studio', text:'Desarrollo de identidad corporativa, campañas de marketing, diseño gráfico y gestión creativa de proyectos.', tags:['Branding','Diseño','Marketing','Identidad visual']},
+    onestudio:{title:'One Studio', text:'Desarrollo de identidad corporativa, campañas de marketing, diseño gráfico, gestión creativa de proyectos y demos de voz para producción comercial.', tags:['Branding','Diseño','Marketing','Identidad visual','Demo de voz']},
     master:{title:'Master FM Ecuador', text:'Producción radial, diseño gráfico, contenido digital y community management para medio radial.', tags:['Radio','Diseño','Contenido','Social media']}
   },
   en: {
@@ -75,7 +75,7 @@ const workProjects = {
     actitud:{title:'Actitud.ec', text:'Creative direction, audiovisual production, radio content, streaming and development of a digital media platform.', tags:['Creative direction','Streaming','Radio','Digital platform']},
     vocu:{title:'Radio Vocú', text:'Radio production, music programming, radio DJ work, entertainment content, streaming and audiovisual production.', tags:['DJ Show','Energy Mix','Conexión USA','Streaming']},
     consentida:{title:'Consentida FM 104.3', text:'Visual brand development, graphic campaigns, social media content, promotional assets, music programming and radio production for a young, commercial radio identity.', tags:['Radio branding','Graphic design','Visual campaigns','Social media','Radio production']},
-    onestudio:{title:'One Studio', text:'Corporate identity development, marketing campaigns, graphic design and creative project management.', tags:['Branding','Design','Marketing','Visual identity']},
+    onestudio:{title:'One Studio', text:'Corporate identity development, marketing campaigns, graphic design, creative project management and voice demo production for commercial media.', tags:['Branding','Design','Marketing','Visual identity','Voice demo']},
     master:{title:'Master FM Ecuador', text:'Radio production, graphic design, digital content and community management for a radio brand.', tags:['Radio','Design','Content','Social media']}
   }
 };
@@ -115,7 +115,7 @@ const projectAssets = {
   conceptual:{ logo:'assets/img/logos/normalized/conceptual.png', gallery:[] },
   actitud:{ logo:'assets/img/logos/normalized/actitud.png', gallery:[] },
   vocu:{ logo:'assets/img/logos/normalized/vocufm.png', gallery:[] },
-  onestudio:{ logo:'assets/img/logos/normalized/onestudio.png', gallery:[] },
+  onestudio:{ logo:'assets/img/logos/normalized/onestudio.png', audio:'assets/audio/onestudio-voiceart-emma-maldonado.mp3', gallery:[], videos:[{embed:'https://www.youtube.com/embed/RtVMMY8sh0Y?si=9WM6lflLU8-V_wUk', label:'One Studio video production'}] },
   master:{ logo:'assets/img/logos/normalized/masterfm.png', gallery:[] },
   consentida:{
     logo:'assets/img/logos/normalized/consentidafm.png',
@@ -317,6 +317,9 @@ $$('.logo-mark').forEach(btn => btn.addEventListener('click', () => {
       const label = video.label || ((currentLang === 'es' ? 'Video ' : 'Video ') + (i + 1));
       if (video.src) {
         return `<button class="project-video-card" type="button" data-video-index="${i}" aria-label="${label}"><video muted preload="metadata" playsinline src="${video.src}#t=0.2"></video><span class="video-play-badge">▶</span><span class="project-video-caption">${label}</span></button>`;
+      }
+      if (video.embed) {
+        return `<div class="youtube-embed-card"><div class="youtube-frame"><iframe src="${video.embed}" title="${label}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe></div><span class="youtube-caption">${label}</span></div>`;
       }
       return `<a class="video-chip" href="${video.url}" target="_blank" rel="noreferrer">▶ ${label}</a>`;
     }).join('')}</div></div>`
